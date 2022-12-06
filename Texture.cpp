@@ -43,3 +43,18 @@ void Texture::UpdateTexture()
 		_pixels.data(),
 		_size.x * sizeof(_pixels[0]));
 }
+
+SDL_Color RgbaFromUint32(Uint32 pixel)
+{
+	SDL_Color color;
+	color.r = static_cast<uint8_t>(pixel >> 24);
+	color.g = static_cast<uint8_t>(pixel >> 16);
+	color.b = static_cast<uint8_t>(pixel >> 8);
+	color.a = static_cast<uint8_t>(pixel);
+	return color;
+}
+
+SDL_Color Texture::GetColor(SDL_Point pixel)
+{
+	return RgbaFromUint32(_pixels.at(pixel.x + pixel.y * _size.x));
+}

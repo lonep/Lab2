@@ -4,59 +4,71 @@
 #include "Functions.h"
 #include "imgui.h"
 #include "Texture.h"
+#include "MImageCalculator.h"
 
 
+
+float MyAwesomeFunction(SDL_Point arg)
+{
+	const SDL_Point circlePos1{ 300, 300 };
+	const float circleRadius1 = 50;
+	const SDL_Point circlePos2{ 100, 100 };
+	const float circleRadius2 = 100;
+
+	float c1 = Functions::Circle(circlePos1, circleRadius1, arg);
+	float c2 = Functions::Circle(circlePos2, circleRadius2, arg);
+	float res = Functions::ROr(c1, c2);
+
+	return res;
+}
 
 class Window: public AppWindow
 {
 public:
-	Window(SDL_Point windowSize):
+	Window(SDL_Point windowSize) :
 		AppWindow(windowSize),
-		texture(GetRenderer(), windowSize)
+		texture(GetRenderer(), windowSize),
+		calculator(&MyAwesomeFunction) // передаем функцию которую будем рассчитывать
 	{
+		ComputeFunction();
 	}
-	
+
+	void ComputeFunction()
+	{
+		std::vector<std::vector<MImageCalculator::MImagePixelData>> data = calculator.GetSpaceData(texture.GetSize());
+		for (size_t i = 0; i < data.size(); ++i)
+		{
+			for (size_t j = 0; j < data[i].size(); ++j)
+			{
+				MImageCalculator::MImagePixelData mimageData = data[i][j];
+				uint8_t colorValue = (mimageData.nx + 1.f) * 127.f;
+				if (mimageData.zone == MImageCalculator::FunctionZone::Positive)
+					texture.SetPixel(SDL_Point(i, j), SDL_Color{ colorValue, 0, 0, 255 });
+				else if (mimageData.zone == MImageCalculator::FunctionZone::Negative)
+					texture.SetPixel(SDL_Point(i, j), SDL_Color{ 0, 0, colorValue, 255 });
+			}
+		}
+		texture.UpdateTexture();
+	}
+
 	void Render() override
 	{
 		texture.Render();
 	}
-	
+
 	void RenderGui() override
 	{
 		ImGui::Begin("MyWindow");
-		if (ImGui::Button("Kotiy example 1"))
-			Kotiy_Exmaple1(texture);
-		if (ImGui::Button("Kotiy example 2"))
-			Kotiy_Exmaple2(texture);
-
-		if (ImGui::Button("inside red"))
-			colorData.setInsideMode(ColorData::red);
-
-		if (ImGui::Button("inside blue"))
-			colorData.setInsideMode(ColorData::blue);
-
-		if (ImGui::Button("inside green"))
-			colorData.setInsideMode(ColorData::green);
-
-		if (ImGui::Button("outside red"))
-			colorData.setOutsideMode(ColorData::red);
-
-		if (ImGui::Button("outside blue"))
-			colorData.setOutsideMode(ColorData::blue);
-
-		if (ImGui::Button("outside green"))
-			colorData.setOutsideMode(ColorData::green);
-		
-
 		ImGui::End();
 	}
-	
+
 	void ProcessEvent(const SDL_Event& e) override
 	{
-		
+
 	}
-	
+
 	Texture texture;
+	MImageCalculator calculator;
 };
 
 

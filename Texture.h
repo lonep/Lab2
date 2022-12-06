@@ -12,6 +12,8 @@ public:
 	SDL_Point GetSize() const { return _size; }
 	
 	void Render();
+
+	SDL_Color GetColor(SDL_Point pixel);
 	
 	void SetPixel(SDL_Point pixel, SDL_Color color);
 	void UpdateTexture();
