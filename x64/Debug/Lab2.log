@@ -1,3 +1,25 @@
-﻿  MImageCalculator.cpp
-C:\Users\lonep\Downloads\Lab2 2\Lab2\MImageCalculator.cpp(39,11): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+﻿  Lab2.cpp
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Functions.h(25,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Functions.h(25,70): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Functions.h(30,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Functions.h(30,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Functions.h(31,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Functions.h(31,53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(92,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(102,13): warning C4244: 'initializing': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(117,81): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(117,29): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(119,81): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(119,29): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(141,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(149,15): warning C4244: 'initializing': conversion from 'float' to 'uint8_t', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(185,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(195,13): warning C4244: 'initializing': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(231,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Examples.h(241,13): warning C4244: 'initializing': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Lab2.cpp(44,24): warning C4244: 'initializing': conversion from 'double' to 'uint8_t', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Lab2.cpp(46,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Lab2.cpp(48,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Lab2.cpp(78,25): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\lonep\Downloads\Lab2 2\Lab2\Lab2.cpp(79,25): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
   Lab2.vcxproj -> C:\Users\lonep\Downloads\Lab2 2\Lab2\x64\Debug\Lab2.exe

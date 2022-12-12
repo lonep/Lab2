@@ -15,7 +15,7 @@ float MyAwesomeFunction(SDL_Point arg)
 	const SDL_Point circlePos2{ 100, 100 };
 	const float circleRadius2 = 100;
 
-	float c1 = Functions::Circle(circlePos1, circleRadius1, arg);
+	float c1 = 1000 * Functions::Ellipse(circlePos1, arg, SDL_Point{100, 50});
 	float c2 = Functions::Circle(circlePos2, circleRadius2, arg);
 	float res = Functions::ROr(c1, c2);
 
@@ -49,6 +49,36 @@ public:
 			}
 		}
 		texture.UpdateTexture();
+		
+
+	}
+
+	void GradientDescent(SDL_Point startPoint, int step, SDL_Color pathColor = { 0, 255, 0, 255 })
+	{
+		// Спускаемся пока не выйдем за пределы пространства текстуры
+		while (startPoint.x >= 0 && startPoint.x < texture.GetSize().x &&
+			startPoint.y >= 0 && startPoint.y < texture.GetSize().y)
+		{
+			// Проверяем, не попали ли мы в точку, которая уже была рассчитана
+			SDL_Color newColor = texture.GetColor({ startPoint.x, startPoint.y });
+			if (newColor.r == pathColor.r &&
+				newColor.g == pathColor.g &&
+				newColor.b == pathColor.b &&
+				newColor.a == pathColor.a)
+			{
+				break;
+			}
+
+			// Окрашивание пути
+			texture.SetPixel({ startPoint.x, startPoint.y }, pathColor);
+
+			// Рассчет ЛГХ в текущей точке
+			MImageCalculator::MImagePixelData data = calculator.GetPixelData({ startPoint.x, startPoint.y });
+			// Движение по направлению убывания с шагом
+			startPoint.x += step * data.nx;
+			startPoint.y -= step * data.ny;
+		}
+		texture.UpdateTexture();
 	}
 
 	void Render() override
@@ -59,16 +89,39 @@ public:
 	void RenderGui() override
 	{
 		ImGui::Begin("MyWindow");
+		ImGui::Text("Mouse position");
+		ImGui::Text("\t%d, %d", mousePosition.x, mousePosition.y); // Aka printf
+		ImGui::SliderInt("Step", step, 1, 10, "%d");
+		if(ImGui::Button("Clear gradient path"))
+			ComputeFunction();
 		ImGui::End();
 	}
 
 	void ProcessEvent(const SDL_Event& e) override
-	{
-
+	{		
+		if (e.type == SDL_MOUSEMOTION)
+		{
+			mousePosition.x = e.motion.x;
+			mousePosition.y = e.motion.y;
+		}
+		else if (e.type == SDL_MOUSEBUTTONDOWN)
+		{
+			if (e.button.button == SDL_BUTTON_RIGHT)
+			{
+				SDL_Point startPoint;
+				startPoint.x = e.button.x;
+				startPoint.y = e.button.y;
+				GradientDescent(startPoint, *step);
+			}
+		}
 	}
 
+	int* step = &s;
+	int s = 2;
 	Texture texture;
+	
 	MImageCalculator calculator;
+	SDL_Point mousePosition;
 };
 
 
