@@ -45,9 +45,6 @@
     <ClCompile Include="ThirdParty\imgui-1.88\imgui_widgets.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ColorData.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWindow.h">
@@ -72,9 +69,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ThirdParty\imgui-1.88\imgui_internal.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ColorData.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

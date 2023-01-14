@@ -24,29 +24,8 @@ public:
 	void RenderGui() override
 	{
 		ImGui::Begin("MyWindow");
-		if (ImGui::Button("Kotiy example 1"))
-			Kotiy_Exmaple1(texture);
-		if (ImGui::Button("Kotiy example 2"))
-			Kotiy_Exmaple2(texture);
-
-		if (ImGui::Button("inside red"))
-			colorData.setInsideMode(ColorData::red);
-
-		if (ImGui::Button("inside blue"))
-			colorData.setInsideMode(ColorData::blue);
-
-		if (ImGui::Button("inside green"))
-			colorData.setInsideMode(ColorData::green);
-
-		if (ImGui::Button("outside red"))
-			colorData.setOutsideMode(ColorData::red);
-
-		if (ImGui::Button("outside blue"))
-			colorData.setOutsideMode(ColorData::blue);
-
-		if (ImGui::Button("outside green"))
-			colorData.setOutsideMode(ColorData::green);
-		
+		if (ImGui::Button("Lab2"))
+			lab2(texture);
 
 		ImGui::End();
 	}

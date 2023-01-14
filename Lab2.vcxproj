@@ -136,7 +136,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AppWindow.cpp" />
-    <ClCompile Include="ColorData.cpp" />
     <ClCompile Include="Lab2.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="ThirdParty\imgui-1.88\backends\imgui_impl_sdl.cpp" />
@@ -149,7 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWindow.h" />
-    <ClInclude Include="ColorData.h" />
     <ClInclude Include="Examples.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Texture.h" />
